@@ -12,4 +12,12 @@ function createGrid(cells) {
     }
   }
 
-  createGrid(16);
+  createGrid(50);
+
+
+  // 1. hover over with black color effect
+  // 2. reset grid button
+  // 3. user input for grid size
+  // 4. random color button
+  // 5. color choice button
+  // 6. webpage design
