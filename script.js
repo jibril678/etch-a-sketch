@@ -1,6 +1,6 @@
 function createGrid(cells) {
     const gridContainer = document.querySelector('.grid-container');
-    gridContainer.innerHTML = ''; // Clear any existing content
+    gridContainer.innerHTML = '';
     
     gridContainer.style.gridTemplateColumns = `repeat(${cells}, 1fr)`;
     gridContainer.style.gridTemplateRows = `repeat(${cells}, 1fr`;
@@ -12,7 +12,7 @@ function createGrid(cells) {
     }
   }
 
-  createGrid(50);
+  createGrid(16);
 
 
   // 1. hover over with black color effect
