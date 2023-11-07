@@ -1,13 +1,14 @@
 const gridContainer = document.querySelector('.grid-container')
-const resizeGridButton = document.querySelector('.resize-grid')
 const resetGridButton = document.querySelector('.reset-grid')
 const slider = document.querySelector('.slider')
 const sliderValue = document.querySelector('.sliderValue')
+const colourSelection = document.querySelector('.colour-pick')
+const randomColour = document.querySelector('.random-colour')
 
 
 
-function createGrid(cells, selectedColour) {;
-    gridContainer.innerHTML = ''; // Clear any content
+function createGrid(cells, colourSelection) {;
+    gridContainer.innerHTML = '';
     
     gridContainer.style.gridTemplateColumns = `repeat(${cells}, 1fr)`;
     gridContainer.style.gridTemplateRows = `repeat(${cells}, 1fr)`;
@@ -17,26 +18,47 @@ function createGrid(cells, selectedColour) {;
       gridItem.classList.add('grid-item');
       gridContainer.appendChild(gridItem);
       gridItem.addEventListener('mouseover', () => {
-        gridItem.style.backgroundColor = `${selectedColour}`
+        gridItem.style.backgroundColor = `${colourSelection.value}`
       })
     }
-
   }
 
-  createGrid(16, 'black');
+  createGrid(slider.value, colourSelection);
 
-  
+  function getRandomColour() {
+    let r = Math.floor(Math.random() * 256)
+    let g = Math.floor(Math.random() * 256)
+    let b = Math.floor(Math.random() * 256)
+    const rgb = `rgb(${r},${g},${b})`
+    return rgb
+  }
+
+  function createGridRandom(cells) {;
+    gridContainer.innerHTML = '';
+    
+    gridContainer.style.gridTemplateColumns = `repeat(${cells}, 1fr)`;
+    gridContainer.style.gridTemplateRows = `repeat(${cells}, 1fr)`;
+
+    for (let i = 0; i < cells * cells; i++) {
+      const gridItem = document.createElement('div');
+      gridItem.classList.add('grid-item');
+      gridContainer.appendChild(gridItem);
+      gridItem.addEventListener('mouseover', () => {
+        gridItem.style.backgroundColor = getRandomColour()
+      })
+    }
+  }
+
   slider.addEventListener('input', () => {
-    createGrid(slider.value, 'black')
+    gridContainer.innerHTML = '';
+    createGrid(slider.value, colourSelection)
     sliderValue.textContent = slider.value
   })
 
-  resetGridButton.addEventListener('click', () => location.reload())
+  resetGridButton.addEventListener('click', () => {
+    gridContainer.innerHTML = '';
+    createGrid(slider.value, colourSelection)
+    sliderValue.textContent = slider.value
+  })
 
-
-  // 1. hover over with black color effect - DONE
-  // 2. reset grid button - DONE
-  // 3. user input for grid size - DONE
-  // 4. random color button
-  // 5. color choice button
-  // 6. webpage design 
+  randomColour.addEventListener('click', () => createGridRandom(slider.value))

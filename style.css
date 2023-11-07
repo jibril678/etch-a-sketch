@@ -2,7 +2,8 @@
     display: grid;
     width: 500px; 
     height: 500px; 
-    border: 2px solid rgb(140, 173, 176);
+    border: 10px solid rgb(140, 173, 176);
+    border-radius: 10px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
@@ -14,7 +15,7 @@
   body {
     height: 100vh;
     margin: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background: linear-gradient(#c9eff0, #9ea4e4);
     display: flex;
     justify-content: center;
@@ -30,9 +31,12 @@
 
   button {
     padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
     background-color: azure;
-    color: #525454;
-    border-radius: 2px;
+    color: #000000;
+    border-radius: 10px;
+    border: 2px solid rgb(140, 173, 176);
     cursor: pointer;
     width: 130px;
     height: 50px;
@@ -42,6 +46,7 @@
   .bottom-buttons {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     width: 500px;
   }
 
@@ -54,7 +59,7 @@
     color: rgba(255, 255, 255, 0.75);
     text-align: center;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
     margin-top: 20px;
   }
 
@@ -63,5 +68,10 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     font-weight: bold;
-    color: rgb(42, 94, 197);
+    color: rgb(57, 113, 223);
+  }
+
+  .colour-pick {
+    height: 50px;
+    border-radius: 10px;
   }
