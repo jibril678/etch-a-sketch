@@ -11,12 +11,12 @@ let currentColourMode = 'default';
 // Initialise mouseover status
 let isMouseDown = false;
 
-// Function to update colour mode
+// Update colour mode
 function changeColourMode(newColourMode) {
   currentColourMode = newColourMode;
 }
 
-// Function to create a new grid. The value of 'cells' will be determined by the slider value
+// New Grid
 function createGrid(cells) {;
     gridContainer.innerHTML = '';
     
@@ -65,5 +65,5 @@ function createGrid(cells) {;
     sliderValue.textContent = slider.value;
   })
 
-  // On page load (default grid size is 16)
+  // On page load
   createGrid(slider.value);

@@ -7,6 +7,10 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
+  .grid-item:hover{
+    background-color: turquoise
+  }
+
   body {
     height: 100vh;
     margin: 0;
@@ -43,15 +47,63 @@
   button {
     padding: 10px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 400;
     background-color: azure;
     color: #000000;
     border-radius: 10px;
-    border: 2px solid rgb(140, 173, 176);
+    border: solid 3px rgb(92, 93, 93);
     cursor: pointer;
     width: 130px;
     height: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
+
+  button:hover {
+    border: solid 5px #a4a4a4;
+    background-color: rgba(250, 235, 215, 0.5);    
+}
+
+  button:active {
+    background: rgb(252, 214, 2)
+}
+
+#rainbow-mode {
+  color: white;
+  border: solid 3px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 0.7) 0%,
+        rgba(255, 154, 0, 0.7) 10%,
+        rgba(208, 222, 33, 0.7) 20%,
+        rgba(79, 220, 74, 0.7) 30%,
+        rgba(63, 218, 216, 0.7) 40%,
+        rgba(47, 201, 226, 0.7) 50%,
+        rgba(28, 127, 238, 0.7) 60%,
+        rgba(95, 21, 242, 0.7) 70%,
+        rgba(186, 12, 248, 0.7) 80%,
+        rgba(251, 7, 217, 0.7) 90%,
+        rgba(255, 0, 0, 0.7) 100%
+    );
+}
+
+#rainbow-mode:hover {
+  background: linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(255, 154, 0, 1) 10%,
+        rgba(208, 222, 33, 1) 20%,
+        rgba(79, 220, 74, 1) 30%,
+        rgba(63, 218, 216, 1) 40%,
+        rgba(47, 201, 226, 1) 50%,
+        rgba(28, 127, 238, 1) 60%,
+        rgba(95, 21, 242, 1) 70%,
+        rgba(186, 12, 248, 1) 80%,
+        rgba(251, 7, 217, 1) 90%,
+        rgba(255, 0, 0, 1) 100%
+    );
+}
+
 
   .bottom-buttons {
     display: flex;
@@ -68,8 +120,8 @@
   }
 
   .title {
-    font-weight: bold;
-    font-size: 42px;
+    font-weight: 400;
+    font-size: 54px;
   }
 
   .footer {
@@ -88,7 +140,16 @@
     color: rgb(255, 255, 255);
   }
 
+  .slider {
+    cursor: pointer;
+  }
+
   .colour-pick {
     height: 50px;
     border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .colour-pick:hover {
+    background-color: rgba(255, 255, 255, 0.5);
   }
