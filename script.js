@@ -11,69 +11,71 @@ let currentColourMode = 'default';
 // Initialise mouseover status
 let isMouseDown = false;
 
-// Update colour mode
-function changeColourMode(newColourMode) {
-  currentColourMode = newColourMode;
-}
+//Functions
 
-// New Grid
-function createGrid(cells) {;
-    gridContainer.innerHTML = '';
-    
-    gridContainer.style.gridTemplateColumns = `repeat(${cells}, 1fr)`;
-    gridContainer.style.gridTemplateRows = `repeat(${cells}, 1fr)`;
+  // New Grid
+  function createGrid(cells) {;
+      gridContainer.innerHTML = '';
+      
+      gridContainer.style.gridTemplateColumns = `repeat(${cells}, 1fr)`;
+      gridContainer.style.gridTemplateRows = `repeat(${cells}, 1fr)`;
 
-    for (let i = 0; i < cells * cells; i++) {
-      const gridItem = document.createElement('div');
-      gridItem.classList.add('grid-item');
-      gridContainer.appendChild(gridItem);
-      gridItem.addEventListener('mouseover', () => {
-        if (isMouseDown) {
-          if (currentColourMode === 'default') {
-              gridItem.style.backgroundColor = `${colourSelection.value}`
-          } else if (currentColourMode === 'rainbow') {
-              gridItem.style.backgroundColor = getRandomColour();
-          }
-      }})
+      for (let i = 0; i < cells * cells; i++) {
+        const gridItem = document.createElement('div');
+        gridItem.classList.add('grid-item');
+        gridContainer.appendChild(gridItem);
+        gridItem.addEventListener('mouseover', () => {
+          if (isMouseDown) {
+            if (currentColourMode === 'default') {
+                gridItem.style.backgroundColor = `${colourSelection.value}`
+            } else if (currentColourMode === 'rainbow') {
+                gridItem.style.backgroundColor = getRandomColour();
+            }
+        }})
+      }
     }
-  }
 
-// Functions
-  function getRandomColour() {
-    let r = Math.floor(Math.random() * 256);
-    let g = Math.floor(Math.random() * 256);
-    let b = Math.floor(Math.random() * 256);
-    const rgb = `rgb(${r},${g},${b})`;
-    return rgb;
-  }
+    // Generate Random Colour
+    function getRandomColour() {
+      let r = Math.floor(Math.random() * 256);
+      let g = Math.floor(Math.random() * 256);
+      let b = Math.floor(Math.random() * 256);
+      const rgb = `rgb(${r},${g},${b})`;
+      return rgb;
+    }
 
-  function resetGrid () {
-    gridContainer.innerHTML = '';
-    sliderValue.textContent = slider.value;
-    randomColour.classList.remove('clicked')
-    colourMode.classList.remove('clicked')
-    createGrid(slider.value);
-  }
+    // Update colour mode
+    function changeColourMode(newColourMode) {
+      currentColourMode = newColourMode;
+    }
+
+    function resetGrid () {
+      gridContainer.innerHTML = '';
+      sliderValue.textContent = slider.value;
+      randomColour.classList.remove('clicked')
+      colourMode.classList.remove('clicked')
+      createGrid(slider.value);
+    }
 
 
 // Event Listeners
-  colourMode.addEventListener('click', () => {
-    colourMode.classList.add('clicked')
-    randomColour.classList.remove('clicked')
-    changeColourMode('default')
-  });
-  randomColour.addEventListener('click', () => {
-    randomColour.classList.add('clicked')
-    colourMode.classList.remove('clicked')
-    changeColourMode('rainbow')
-  });
-  slider.addEventListener('input', () => {
-    createGrid(slider.value);
-    sliderValue.textContent = slider.value;
-  })
-  resetGridButton.addEventListener('click',resetGrid);
-  document.addEventListener('mousedown', () => isMouseDown = true);
-  document.addEventListener('mouseup', () => isMouseDown = false);
+    colourMode.addEventListener('click', () => {
+      colourMode.classList.add('clicked')
+      randomColour.classList.remove('clicked')
+      changeColourMode('default')
+    });
+    randomColour.addEventListener('click', () => {
+      randomColour.classList.add('clicked')
+      colourMode.classList.remove('clicked')
+      changeColourMode('rainbow')
+    });
+    slider.addEventListener('input', () => {
+      createGrid(slider.value);
+      sliderValue.textContent = slider.value;
+    })
+    resetGridButton.addEventListener('click',resetGrid);
+    document.addEventListener('mousedown', () => isMouseDown = true);
+    document.addEventListener('mouseup', () => isMouseDown = false);
 
   // On page load
   createGrid(slider.value);
