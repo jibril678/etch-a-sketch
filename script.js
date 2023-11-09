@@ -71,7 +71,11 @@ let isMouseDown = false;
       createGrid(slider.value);
       sliderValue.textContent = slider.value;
     })
+
+    //Reset Grid
     resetGridButton.addEventListener('click',resetGrid);
+
+    //Mousedown Function
     document.addEventListener('mousedown', () => isMouseDown = true);
     document.addEventListener('mouseup', () => isMouseDown = false);
 
