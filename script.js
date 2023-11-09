@@ -52,12 +52,10 @@ let isMouseDown = false;
     function resetGrid () {
       gridContainer.innerHTML = '';
       sliderValue.textContent = slider.value;
-      randomColour.classList.remove('clicked')
-      colourMode.classList.remove('clicked')
       createGrid(slider.value);
     }
 
-
+    
 // Event Listeners
     colourMode.addEventListener('click', () => {
       colourMode.classList.add('clicked')
