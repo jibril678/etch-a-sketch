@@ -49,21 +49,31 @@ function createGrid(cells) {;
 
   function resetGrid () {
     gridContainer.innerHTML = '';
-    createGrid(slider.value);
     sliderValue.textContent = slider.value;
+    randomColour.classList.remove('clicked')
+    colourMode.classList.remove('clicked')
+    createGrid(slider.value);
   }
 
 
 // Event Listeners
-  resetGridButton.addEventListener('click', resetGrid);
-  colourMode.addEventListener('click', () => changeColourMode('default'));
-  randomColour.addEventListener('click', () => changeColourMode('rainbow'));
-  document.addEventListener('mousedown', () => isMouseDown = true);
-  document.addEventListener('mouseup', () => isMouseDown = false);
+  colourMode.addEventListener('click', () => {
+    colourMode.classList.add('clicked')
+    randomColour.classList.remove('clicked')
+    changeColourMode('default')
+  });
+  randomColour.addEventListener('click', () => {
+    randomColour.classList.add('clicked')
+    colourMode.classList.remove('clicked')
+    changeColourMode('rainbow')
+  });
   slider.addEventListener('input', () => {
     createGrid(slider.value);
     sliderValue.textContent = slider.value;
   })
+  resetGridButton.addEventListener('click',resetGrid);
+  document.addEventListener('mousedown', () => isMouseDown = true);
+  document.addEventListener('mouseup', () => isMouseDown = false);
 
   // On page load
   createGrid(slider.value);
